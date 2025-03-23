@@ -28,7 +28,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: |
-            abmmhasan/apn
+            infocyph/apn
 
       - name: Build and push Docker images
         id: push
@@ -42,6 +42,6 @@ jobs:
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
         with:
-          subject-name: abmmhasan/apn
+          subject-name: infocyph/apn
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true

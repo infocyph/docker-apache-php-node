@@ -12,10 +12,10 @@ SHELL ["/bin/bash", "-c"]
 ARG USERNAME=dockery
 ENV USERNAME=${USERNAME}
 ARG BANNER_TITLE=LOCALDOCK
-ARG LINUX_PKG
-ARG LINUX_PKG_VERSIONED
-ARG PHP_EXT
-ARG PHP_EXT_VERSIONED
+ARG LINUX_PKG=""
+ARG LINUX_PKG_VERSIONED=""
+ARG PHP_EXT=""
+ARG PHP_EXT_VERSIONED=""
 ENV APACHE_LOG_DIR=/var/log/apache2
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV PATH="/usr/local/bin:/usr/bin:/bin:/usr/games:$PATH"
@@ -38,8 +38,8 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 # Install Node.js and npm globally if requested
-ARG NODE_VERSION
-ARG NODE_VERSION_VERSIONED
+ARG NODE_VERSION=""
+ARG NODE_VERSION_VERSIONED=""
 RUN set -eux; \
     if [[ -n "$NODE_VERSION_VERSIONED" || -n "$NODE_VERSION" ]]; then \
         curl -fsSL https://deb.nodesource.com/setup_${NODE_VERSION_VERSIONED:-$NODE_VERSION}.x | bash - && \
